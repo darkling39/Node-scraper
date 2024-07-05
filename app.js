@@ -3,8 +3,12 @@ const morgan = require('morgan');
 const app = express()
 const bodyParser = require('body-parser');
 
+const mongoose = require('mongoose');
 const routes = require('./scraper')
 
+
+mongoose.connect('mongodb+srv://axioma162:Dead_Man_39@nodeexpresstraining.y3kxza3.mongodb.net/?retryWrites=true&w=majority&appName=NodeExpressTraining'
+)
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:false}))
