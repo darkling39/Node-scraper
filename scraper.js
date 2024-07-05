@@ -16,9 +16,7 @@ async function getData() {
     const description = $('rz-text-content > div > div > div').text().toString().slice(0,2048)
     const price = $('div.product-price__wrap.ng-star-inserted > p.product-price__big.product-price__big-color-red').text().toString()
     let numPrice = Number(price.slice(0, price.length -1).replace(/\s/g, ''))
-    const specifications = {
-        garantee: $('rz-collapse-text > div > p').text()
-    }
+    const specifications = $('div > rz-product-characteristics-list').text()
     const type = $('ul > li.breadcrumbs__item.breadcrumbs__item--last.ng-star-inserted > a > span').text()
     const image = $('div > rz-gallery-main-content-image > img').toString()
     let imgSrc = image.slice(image.lastIndexOf("src=\"") + 5, image.length).replace("\"", "")
@@ -35,6 +33,7 @@ async function getData() {
     }
     return productsData
 }
+getData()
 
 router.get('/', (req, res, next) => {
     res.status(200).json()
