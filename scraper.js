@@ -6,7 +6,8 @@ const Product = require("./models/product");
 const mongoose = require("mongoose");
 
 async function getData() {
-  const url = "https://rozetka.com.ua/ua/apple-macbook-air-136-m2-256gb-2022-space-gray/p343424014/";
+  const url =
+    "https://rozetka.com.ua/ua/apple-macbook-air-136-m2-256gb-2022-space-gray/p343424014/";
   const res = await fetch(url);
 
   const html = await res.text();
@@ -50,11 +51,12 @@ getData();
 
 router.get("/", async (req, res, next) => {
   const prod = await getData();
-  prod.save()
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((err) => console.log(err));
+  prod
+    .save()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => console.log(err));
   res.status(200).json(prod);
 });
 

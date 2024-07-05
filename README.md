@@ -2,6 +2,10 @@ Web Scraper on Node.JS
 
 First of all use npm init to automaticly install all depencencies.
 
+Project connected to MongoDb, so you need a MongoDb cluster and free database(or just comment(remmove) lines related to Mongo)
+
+Connection take place in 10th line app.js. Just replace mine connection to yours.
+
 To begin scraping you need to start your server by command "npm start".
 You'll have a server on localhost:5000.
 
